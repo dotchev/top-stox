@@ -43,4 +43,4 @@ Here for each stock/ETF we load the historical price data and calculate:
 python top-stox.py 
 ```
 
-[The result](data/top-stox.csv) is sorted by return / risk ratio so you can see the top stocks/ETFs at the top.
+[The results](data/top-stox.csv) are sorted by return / risk ratio so you can see the top stocks/ETFs at the top.
