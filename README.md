@@ -9,7 +9,7 @@ Our stock universe:
 ## Prerequisites
 
 :information_source: You need this only if you want to play with the Python code.
-Can also jump straight to the results at the bottom.
+You can also jump straight to the results at the bottom.
 
 Python 3.12 or later
 
