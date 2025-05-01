@@ -59,4 +59,8 @@ This is because some symbols have history shorter than 5 years.
 
 ## The results
 The results are already provided in [data/top-stox.csv](data/top-stox.csv).
-It lists the stocks and ETFs in [our universe](#top-stox) sorted by return / risk ratio so you can see the best stocks/ETFs at the top. The previous section describes the table columns.
+It lists the stocks and ETFs in [our universe](#top-stox) sorted by return / risk ratio so you can see the best stocks/ETFs at the top.
+The previous section describes the table columns.
+You can open the table in an easier to view format in [Google Sheets](https://docs.google.com/spreadsheets/d/1FcSCCSSMf4GDMnWiIf6uvauVM-bnhS9nifoqAC2VCtM).
+From the menu select _Data > Create filter view_ and you will get filter buttons on each column.
+You can use them to slice and dice the data.
