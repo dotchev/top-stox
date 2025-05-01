@@ -28,7 +28,6 @@ for symbol, name, type in symbols:
   sma = history.Close.rolling(window=13).mean().dropna() # 13 weeks = 3 months smoothing
   cagr = (sma.iloc[-1] / sma.iloc[0]) ** (52 / len(sma)) - 1 # annualized change
   changes = history.Close.pct_change(periods=change_weeks).dropna()
-  mean = changes.mean()
   std = changes.std()
   if std == 0:
     continue
@@ -37,9 +36,8 @@ for symbol, name, type in symbols:
       'name': name,
       'type': type,
       'annual change': cagr,
-      'mean change': mean,
       'volatility': std,
-      'ratio': mean / std,
+      'ratio': cagr / std,
   })
 
 df = pd.DataFrame(rows).sort_values(by='ratio', ascending=False)

@@ -45,9 +45,8 @@ So, the script will do nothing.
 ## Number crunching
 
 Here for each stock/ETF we load the historical price data and calculate:
-- Annualized growth rate (annual change)
-- Average change over a sliding window of 1 year
-- Standard deviation (volatility) of the above 1 year changes
+- Annualized growth rate (annual change) of 3 month moving average
+- Standard deviation of changes over a sliding window of 1 year (volatility)
 - Return / risk ratio (the ratio of the two values above)
 
 ```sh
