@@ -12,11 +12,13 @@ symbols = (
     [(row['Symbol'], row['ETF Name'], "ETF") for _, row in top_etfs.iterrows()]
 )
 
-change_weeks = 52
+# You can tweak these numbers to change the time period for the analysis
+change_weeks = 52 # 1 year of weekly data
+# history_weeks = 104 # 2 years of weekly data
 history_weeks = 262 # 5 years of weekly data
 
 rows = []
-for symbol, description, type in symbols:
+for symbol, name, type in symbols:
   symbol = symbol.replace('.', '-')  # for yahoo finance compatibility
   filename = f'{symbol}.csv'
   history = pd.read_csv(os.path.join(STOCK_HISTORY_DIR, filename))
@@ -24,7 +26,7 @@ for symbol, description, type in symbols:
     continue
   history = history.tail(history_weeks)
   sma = history.Close.rolling(window=13).mean().dropna() # 13 weeks = 3 months smoothing
-  cagr = (sma.iloc[-1] / sma.iloc[0]) ** (52 / len(sma)) - 1
+  cagr = (sma.iloc[-1] / sma.iloc[0]) ** (52 / len(sma)) - 1 # annualized change
   changes = history.Close.pct_change(periods=change_weeks).dropna()
   mean = changes.mean()
   std = changes.std()
@@ -32,13 +34,13 @@ for symbol, description, type in symbols:
     continue
   rows.append({
       'symbol': symbol,
-      'description': description,
+      'name': name,
       'type': type,
-      'CAGR': cagr, # Compound Annual Growth Rate
-      'avg_change': mean,
-      'std': std,
-      'R/R': mean / std,
+      'annual change': cagr,
+      'mean change': mean,
+      'volatility': std,
+      'ratio': mean / std,
   })
 
-df = pd.DataFrame(rows).sort_values(by='R/R', ascending=False)
+df = pd.DataFrame(rows).sort_values(by='ratio', ascending=False)
 df.to_csv(RETURN_RISK_FILE, index=False)
