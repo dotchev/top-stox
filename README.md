@@ -57,6 +57,8 @@ Notice that the result is smaller (~1274 rows) than our stock universe.
 This is because some symbols have history shorter than 5 years.
 
 ## The results
+Data as of 2024-04-29
+
 The results are already provided in [data/top-stox.csv](data/top-stox.csv).
 It lists the stocks and ETFs in [our universe](#top-stox) sorted by return / risk ratio so you can see the best stocks/ETFs at the top.
 The previous section describes the table columns.
