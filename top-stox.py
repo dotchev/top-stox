@@ -12,9 +12,10 @@ symbols = (
     [(row['Symbol'], row['ETF Name'], "ETF") for _, row in top_etfs.iterrows()]
 )
 
-# You can tweak these numbers to change the time period for the analysis
+# length of the sliding window
 change_weeks = 52 # 1 year of weekly data
-# history_weeks = 104 # 2 years of weekly data
+
+# overall period to analyze
 history_weeks = 262 # 5 years of weekly data
 
 rows = []
