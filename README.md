@@ -51,7 +51,7 @@ Here for each symbol we load the historical price data and calculate:
 python top-stox.py 
 ```
 This will produce [data/top-stox.csv](data/top-stox.csv).
-Notice that the result is smaller (~1274 rows) than our stock universe.
+Notice that the result is smaller (~1745 rows) than our stock universe.
 This is because some symbols have history shorter than 5 years.
 
 ## The results
