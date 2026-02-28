@@ -43,8 +43,8 @@ So, the script will do nothing.
 
 Here for each symbol we load the historical price data and calculate:
 - Geometric mean of changes over a sliding window of 1 year
-- Standard deviation of the changes calculated above (volatility)
-- Return / risk ratio (Geometric mean / Standard deviation)
+- Standard deviation of the changes calculated above - higher values mean more fluctuation of asset prices, i.e. higher risk
+- Return / risk ratio (geometric mean / standard deviation)
 
 ```sh
 python top-stox.py 

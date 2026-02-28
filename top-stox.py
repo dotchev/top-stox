@@ -34,7 +34,7 @@ for _, row in all_symbols.iterrows():
     'symbol': symbol,
     'name': name,
     'type': symbol_type,
-    'gmean 1y change': gmean_change,
+    '1y return': gmean_change,
     '1y volatility': std,
     'ratio': gmean_change / std,
   })

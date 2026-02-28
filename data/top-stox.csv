@@ -1,4 +1,4 @@
-symbol,name,type,gmean 1y change,1y volatility,ratio
+symbol,name,type,1y return,1y volatility,ratio
 VDIV.DE,VanEck Morningstar Developed Markets Dividend Leaders UCITS ETF,UCITS,0.16035071763391606,0.0655236799465923,2.447217826663831
 VUKG.DE,Vanguard FTSE 100 UCITS ETF GBP Accumulation,UCITS,0.1509524411749925,0.06853503350103134,2.2025588004231578
 COR,Cencora,stock,0.2803827494926865,0.12739942451511596,2.200816452349194
