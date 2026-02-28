@@ -25,9 +25,6 @@ for _, row in all_symbols.iterrows():
   if len(history) < history_weeks:
     continue
   history = history.tail(history_weeks)
-  change = history.Close.iloc[-1] / history.Close.iloc[0] - 1
-  sma = history.Close.rolling(window=13).mean().dropna() # 13 weeks = 3 months smoothing
-  cagr = (sma.iloc[-1] / sma.iloc[0]) ** (52 / len(sma)) - 1 # annualized change
   changes = history.Close.pct_change(periods=change_weeks).dropna()
   gmean_change = gmean(1 + changes) - 1 # geometric mean of changes
   std = changes.std()
@@ -37,9 +34,8 @@ for _, row in all_symbols.iterrows():
     'symbol': symbol,
     'name': name,
     'type': symbol_type,
-    '5y change': change,
-    'gmean change': gmean_change,
-    'volatility': std,
+    'gmean 1y change': gmean_change,
+    '1y volatility': std,
     'ratio': gmean_change / std,
   })
 

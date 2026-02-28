@@ -17,14 +17,16 @@ def build_all_symbols():
         'type': 'stock',
         'name': sp500_data['Security']
     })
+    print(f'Loaded {len(sp500_df)} S&P 500 stocks')
     
     # Load ETFs
-    etf_data = pd.read_csv(TOP_ETFS_FILE)
+    etf_data = pd.read_csv('data/etfs-by-assets.csv')[:1500]  # limit to top 1500 ETFs by assets
     etf_df = pd.DataFrame({
-        'symbol': etf_data['Symbol'].str.replace('.', '-', regex=False),  # for Yahoo Finance compatibility
+        'symbol': etf_data['symbol'].str.replace('.', '-', regex=False),  # for Yahoo Finance compatibility
         'type': 'ETF',
-        'name': etf_data['ETF Name']
+        'name': etf_data['name']
     })
+    print(f'Loaded {len(etf_df)} ETFs')
     
     # Load UCITS
     ucits_data = pd.read_csv(TOP_UCITS_FILE)
@@ -33,9 +35,11 @@ def build_all_symbols():
         'type': 'UCITS',
         'name': ucits_data['name']
     })
+    print(f'Loaded {len(ucits_df)} UCITS')
     
     # Load extra symbols (already has symbol, type, name columns)
     extra_data = pd.read_csv(EXTRA_SYMBOLS_FILE)
+    print(f'Loaded {len(extra_data)} extra symbols')
     
     # Combine all dataframes
     all_symbols = pd.concat([sp500_df, etf_df, ucits_df, extra_data], ignore_index=True)

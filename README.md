@@ -42,20 +42,19 @@ So, the script will do nothing.
 ## Number crunching
 
 Here for each symbol we load the historical price data and calculate:
-- 5y change
-- Geometric mean of 1y changes over a sliding window of 1 year
-- Standard deviation of 1y changes over a sliding window of 1 year (volatility)
-- Return / risk ratio (the ratio of the two values above)
+- Geometric mean of changes over a sliding window of 1 year
+- Standard deviation of the changes calculated above (volatility)
+- Return / risk ratio (Geometric mean / Standard deviation)
 
 ```sh
 python top-stox.py 
 ```
 This will produce [data/top-stox.csv](data/top-stox.csv).
-Notice that the result is smaller (~1745 rows) than our stock universe.
+Notice that the result is smaller (~2031 rows) than our stock universe.
 This is because some symbols have history shorter than 5 years.
 
 ## The results
-Data as of 2025-02-14
+Data as of 2026-02-28
 
 The results are already provided in [data/top-stox.csv](data/top-stox.csv).
 It lists the assets in [our universe](#top-stox) sorted by return / risk ratio so you can see the "best" ones at the top.
