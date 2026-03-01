@@ -15,7 +15,8 @@ def build_all_symbols():
     sp500_df = pd.DataFrame({
         'symbol': sp500_data['Symbol'].str.replace('.', '-', regex=False),  # for Yahoo Finance compatibility
         'type': 'stock',
-        'name': sp500_data['Security']
+        'name': sp500_data['Security'],
+        'currency': 'USD'
     })
     print(f'Loaded {len(sp500_df)} S&P 500 stocks')
     
@@ -24,7 +25,8 @@ def build_all_symbols():
     etf_df = pd.DataFrame({
         'symbol': etf_data['symbol'].str.replace('.', '-', regex=False),  # for Yahoo Finance compatibility
         'type': 'ETF',
-        'name': etf_data['name']
+        'name': etf_data['name'],
+        'currency': 'USD'
     })
     print(f'Loaded {len(etf_df)} ETFs')
     
@@ -33,7 +35,8 @@ def build_all_symbols():
     ucits_df = pd.DataFrame({
         'symbol': ucits_data['symbol'],
         'type': 'UCITS',
-        'name': ucits_data['name']
+        'name': ucits_data['name'],
+        'currency': 'EUR'
     })
     print(f'Loaded {len(ucits_df)} UCITS')
     

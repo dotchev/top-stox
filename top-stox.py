@@ -17,6 +17,7 @@ for _, row in all_symbols.iterrows():
   symbol = row['symbol']
   name = row['name']
   symbol_type = row['type']
+  currency = row['currency']
   filename = f'{symbol}.csv'
   filepath = os.path.join(STOCK_HISTORY_DIR, filename)
   if not os.path.exists(filepath):
@@ -34,6 +35,7 @@ for _, row in all_symbols.iterrows():
     'symbol': symbol,
     'name': name,
     'type': symbol_type,
+    'currency': currency,
     '1y return': gmean_change,
     '1y volatility': std,
     'ratio': gmean_change / std,
